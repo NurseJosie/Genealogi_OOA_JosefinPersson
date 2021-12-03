@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Genealogi_OOA_JosefinPersson.Utils
 {
-    public class FamilyTree { 
-     
+    public class FamilyTree {
+
         //familjen 
         public void StarkFamily()
         {
@@ -21,19 +21,16 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     BirthDate = 1900,
                     DeathDate = 1950,
                     MotherId = 0,
-                    FatherId = 0)
-                    };
-            //Pet = new List<Pet>
-            //{
-            //new Pet { Description = "Flying" },
-            //new Power { Description = "X-ray vision" },
-            //}
-
-            db.SaveChanges();
+                    FatherId = 0,
+                    Pets = new List<Pet>
+                        {
+                        }
+                    });
+                    db.SaveChanges();
+            }
         }
-    }
-   
+
 
         //husdjuren
-    }
+    } }
 

@@ -12,23 +12,25 @@ namespace Genealogi_OOA_JosefinPersson
     {
         //databaskoppling och dbsets här
         private const string DatabaseName = "JPGenealogi";
+        private const string ConnString = "server=(localdb)\\mssqllocaldb;integrated security=true;database = JPGenealogi";     // 
         public DbSet<Person> People { get; set; }
         public DbSet<Pet> Pets { get; set; }
-        public DbSet<Spouse> Spouses { get; set; }
-        public DbSet<History> History { get; set; }
+        ////public DbSet<Spouse> Spouses { get; set; }
+        //public DbSet<History> History { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-            optionsBuilder.UseSqlServer("server=(localdb)\\mssqllocaldb;integrated security=true;database=JPGenealogi");
+           // var conn=string.Format(ConnString, DatabaseName);
+            optionsBuilder.UseSqlServer(ConnString);   
+            base.OnConfiguring(optionsBuilder);
         }
     }
 
-    public static class InitializeDatabase //Fyller en nyskapad databas med grunddata, kan också kallas Seeder
-    {
-        public static void Seed() // här fylls databasen med data
-        {
+    //public static class InitializeDatabase //Fyller en nyskapad databas med grunddata, kan också kallas Seeder
+    //{
+    //    public static void Seed() // här fylls databasen med data
+    //    {
 
-        }
+    //    }
 
-    }
+    //}
 }

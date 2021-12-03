@@ -16,6 +16,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             {
                 db.People.Add(new Models.Person
                 {
+                    Id = 1, //lägg till manuellt?
                     FirstName = "Rickard",
                     LastName = "Stark",
                     BirthDate = 1900,

@@ -65,7 +65,8 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                      
                         break;
                     case 2:
-                      
+                        // input bokstav -> visa
+                        //input årtal -> visa
                         break;
                     case 3:
                         

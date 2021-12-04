@@ -41,8 +41,6 @@ namespace Genealogi_OOA_JosefinPersson.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-       
-        //public string MaidenName { get; set; }
         public int BirthDate { get; set; } // DateTime? År räcker!
         public int DeathDate { get; set; } // DateTime? År räcker!
         public int MotherId { get; set; } // ange Id på personen

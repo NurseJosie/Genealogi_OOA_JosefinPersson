@@ -26,8 +26,8 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     //Pets = new List<Pet>
                     //    {
                     //    }
-                    //});
-                    db.SaveChanges();
+                });
+                db.SaveChanges();
             }
         }
 

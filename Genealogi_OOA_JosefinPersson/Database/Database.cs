@@ -8,26 +8,15 @@ using System.Threading.Tasks;
 
 namespace Genealogi_OOA_JosefinPersson
 {
-    public class Database:DbContext  // databasklassen
+    public class Database:DbContext  
     {
-        //databaskoppling och dbsets här
         private const string DatabaseName = "JPGenealogi";
-        private const string ConnString = "server=(localdb)\\mssqllocaldb;integrated security=true;database = JPGenealogi";     // 
+        private const string ConnString = "server=(localdb)\\mssqllocaldb;integrated security=true;database = JPGenealogi";    
         public DbSet<Person> People { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           // var conn=string.Format(ConnString, DatabaseName);
             optionsBuilder.UseSqlServer(ConnString);   
             base.OnConfiguring(optionsBuilder);
         }
     }
-
-    //public static class InitializeDatabase //Fyller en nyskapad databas med grunddata, kan också kallas Seeder
-    //{
-    //    public static void Seed() // här fylls databasen med data
-    //    {
-
-    //    }
-
-    //}
 }

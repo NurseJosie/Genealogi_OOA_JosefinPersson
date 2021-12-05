@@ -9,12 +9,10 @@ namespace Genealogi_OOA_JosefinPersson.Utils
 {
     public class FamilyTree {
 
-        //familjen 
         public void StarkFamily()
         {
             using (var db = new Database())
             {
-                //db.CreateTable<Person>();
                 db.People.Add(new Models.Person  //1
                 {
                     
@@ -48,7 +46,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     FatherId = 1,
                     
                 });
-                db.People.Add(new Models.Person
+                db.People.Add(new Models.Person //4
                 {
                     
                     FirstName = "Brandon",
@@ -59,7 +57,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     FatherId = 1,
                  
                 });
-                db.People.Add(new Models.Person
+                db.People.Add(new Models.Person //5
                 {
                     FirstName = "Benjen",
                     LastName = "Stark",
@@ -98,7 +96,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     FatherId = 0,
          
                 });
-                db.People.Add(new Models.Person 
+                db.People.Add(new Models.Person //9
                 {
                     FirstName = "Robb",
                     LastName = "Stark",
@@ -108,7 +106,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     FatherId = 3,
 
                 });
-                db.People.Add(new Models.Person
+                db.People.Add(new Models.Person //10
                 {
                     FirstName = "Sansa",
                     LastName = "Stark",
@@ -118,7 +116,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     FatherId = 3,
 
                 });
-                db.People.Add(new Models.Person
+                db.People.Add(new Models.Person //11
                 {
                     FirstName = "Arya",
                     LastName = "Stark",
@@ -127,7 +125,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     MotherId = 8,
                     FatherId = 3,
                 });
-                db.People.Add(new Models.Person
+                db.People.Add(new Models.Person //12
                 {
                     FirstName = "Bran",
                     LastName = "Stark",
@@ -136,7 +134,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     MotherId = 8,
                     FatherId = 3,
                 });
-                db.People.Add(new Models.Person
+                db.People.Add(new Models.Person //13
                 {
                     FirstName = "Rickon",
                     LastName = "Stark",
@@ -145,7 +143,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     MotherId = 8,
                     FatherId = 3,
                 });
-                db.People.Add(new Models.Person
+                db.People.Add(new Models.Person //14
                 {
                     FirstName = "Jon",
                     LastName = "Snow",

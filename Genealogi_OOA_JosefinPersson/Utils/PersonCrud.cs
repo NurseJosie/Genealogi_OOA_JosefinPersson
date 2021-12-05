@@ -52,10 +52,8 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 create.Add(person);
                 create.SaveChanges();
             }
-            
-            // skicka in till DB
-
-            // ange personens föräldrar, spouse och pet! kolla först om den finns och föreslå den
+ 
+            // ange personens föräldrar, kolla först om den finns och föreslå den
         }
         public void Read() // lista alla förnamn(och efternamn)
         {
@@ -64,37 +62,35 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 var list = family.People.OrderByDescending(f => f.FirstName);
                 foreach (var n in list)
                 {
-                    Console.WriteLine("Firstname: ", n.FirstName);
+                    Console.WriteLine("Firstname: " + n.FirstName);
                 }
             }
-
         }
         public void ReadFirstLetter()  //lista efter angiven bokstav
         {
-            
             using(var family = new Database())
             {
                 Console.WriteLine("Input first letter:");
                 string firstLetter = Console.ReadLine();
-                Console.WriteLine(firstLetter);
 
-                var persons = family.People.Where(n => n.FirstName.StartsWith(firstLetter)).ToList();
-
-                persons.ForEach(person => Console.WriteLine("Firstname: ", person.FirstName));
+                family.People.Where(n => n.FirstName.StartsWith(firstLetter)).ToList().ForEach(person => Console.WriteLine("Firstname: " + person.FirstName + " Lastname: " + person.LastName));
             }
         }
 
-        public void ReadBirthYear(Person p) //lista efter angivet år
+        public void ReadBirthYear() //lista efter angivet år
         {
-            //Console.WriteLine("Input birth year:");
-            //string birthYearInput = Console.ReadLine();
-            //var birthYear = 0;
-            //int.TryParse(birthYearInput, out birthYear);
+            using (var family = new Database())
+            {
+                Console.WriteLine("Input birth year:");
+                string birthYearInput = Console.ReadLine();
+                var birthYear = 0;
+                int.TryParse(birthYearInput, out birthYear);
 
-            //db.Personer.Where(n => n.Namn.StartsWith(firstLetter));
+                family.People.Where(n => n.BirthDate == birthYear).ToList().ForEach(person => Console.WriteLine("Firstname: " + person.FirstName + " Lastname: " + person.LastName));
+            }
         }
 
-        public void Update(Person p) //uppdatera........
+        public void Update() //uppdatera vald person, vald property......
         {
             //using (var filmsamling = new FilmLista())
             //{
@@ -107,7 +103,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             //    }
             //}
         }
-        public void Delete(Person p) // ta bort......
+        public void Delete() // välj person, ta bort......
         {
             //using (var filmsamling = new FilmLista())
             //{
@@ -118,12 +114,12 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             //}
         }
 
-        public void ShowParents() //visa föräldrar......
+        public void ShowParents() // ange person, visa föräldrars ID......
         {
 
         }
 
-        public void ShowSiblings() //visa alla med samma förälder......
+        public void ShowSiblings() // ange person......  SAMMA SOM SHOWCHILDREN?
         {
 
         }
@@ -135,19 +131,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
 
     }
 
-    //Console.WriteLine("1) Create");               PÅBÖRJAD
-    //Console.WriteLine("2) Read(Find)");           PÅBÖRJAD
-    //Console.WriteLine("3) Update");               PÅBÖRJAD
-    //Console.WriteLine("4) Delete");               PÅBÖRJAD
-    //Console.WriteLine("5) Namnlista på viss bokstav     PÅBÖRJAD
-    //eller födelseår");                                PÅBÖRJAD
-    //Console.WriteLine("6) Visa mor- och farföräldrar");    PÅBÖRJAD
-    //Console.WriteLine("7) Visa barn(spec. persons barn?, +husdjur)");    PÅBÖRJAD
-    //VISA SYSKON                                   PÅBÖRJAD
   
-
-
-
 
 
 

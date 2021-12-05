@@ -19,6 +19,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             while (run)
             {
                 Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine("                                   ; ; ;");
                 Console.WriteLine("                  ;        ;  ;     ;;    ;");
                 Console.WriteLine("               ;                 ;         ;  ;");
@@ -47,16 +48,16 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 Console.Clear();
 
                 Console.WriteLine("Meny");
-                Console.WriteLine("1) Create");
-                Console.WriteLine("2) Read(Find)");
-                Console.WriteLine("3) Update");
-                Console.WriteLine("4) Delete");
-                Console.WriteLine("5) Namnlista på viss bokstav eller födelseår");
-                Console.WriteLine("6) Visa mor- och farföräldrar");
-                Console.WriteLine("7) Visa barn(spec. persons barn?, +husdjur)");
-                // syskon!
-                Console.WriteLine("8) Exit");
-
+                Console.WriteLine("1) Create: new Stark family member");
+                Console.WriteLine("2) Read: list of all family members");
+                Console.WriteLine("3) Read: list by first letter");
+                Console.WriteLine("4) Read: list by birth year");
+                Console.WriteLine("5) Update: family member");
+                Console.WriteLine("6) Delete: family member");
+                Console.WriteLine("7) Search for parents");
+                Console.WriteLine("8) Search for children");
+                Console.WriteLine("9) Search for siblings");
+                Console.WriteLine("10) Exit");
 
                 string userInput = Console.ReadLine();
                 int menuInput = 0;
@@ -70,26 +71,35 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                         personCrud.Create();
                         break;
                     case 2:
-                        personCrud.ReadFirstLetter();
+                        personCrud.Read();
                         break;
                     case 3:
-                        
+                        personCrud.ReadFirstLetter();
                         break;
                     case 4:
-                        
+                        personCrud.ReadBirthYear();
                         break;
                     case 5:
-                       
+                       // update
                         break;
                     case 6:
-                      
+                      // delete
                         break;
                     case 7:
+                       // parents
+                        break;
+                    case 8:
+                        // children
+                        break;
+                    case 9:
+                        //siblings
+                        break;
+                    case 10:
                         run = false;
                         break;
-
+                  
                     default:
-                        Console.WriteLine("Ange en siffra mellan 1-8.");
+                        Console.WriteLine("Input a number between 1-10.");
                         Console.ReadKey();
                         break;
                 }

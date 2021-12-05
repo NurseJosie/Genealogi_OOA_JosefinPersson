@@ -23,9 +23,9 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     DeathDate = 1950,
                     MotherId = 0,
                     FatherId = 0,
-                    //Pets = new List<Pet>
-                    //    {
-                    //    }
+                    Pets = new List<Pet>
+                    {
+                    }
                 });
                 db.SaveChanges();
             }

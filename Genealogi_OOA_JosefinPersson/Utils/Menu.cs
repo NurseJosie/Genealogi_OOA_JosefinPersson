@@ -11,6 +11,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
     {
         public void mainMenu()
         {
+            FamilyTree familyTree = new FamilyTree();
             bool run = true;
 
             while (run)

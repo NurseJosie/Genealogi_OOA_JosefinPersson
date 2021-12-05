@@ -61,16 +61,16 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 string userInput = Console.ReadLine();
                 int menuInput = 0;
                 int.TryParse(userInput, out menuInput);
+                PersonCrud personCrud = new PersonCrud();
 
 
                 switch (menuInput)
                 {
                     case 1:
-                        
+                        personCrud.Create();
                         break;
                     case 2:
-                        // input bokstav -> visa
-                        //input årtal -> visa
+                        personCrud.ReadFirstLetter();
                         break;
                     case 3:
                         

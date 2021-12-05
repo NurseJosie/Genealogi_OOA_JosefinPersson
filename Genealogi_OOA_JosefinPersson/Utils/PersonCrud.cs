@@ -9,7 +9,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
 {
     public class PersonCrud // använd LINQ och SQL!
     {
-        public void Create(Person p)
+        public void Create()
         {
             using(var create = new Database())
             {
@@ -59,22 +59,29 @@ namespace Genealogi_OOA_JosefinPersson.Utils
         }
         public void Read() // lista alla förnamn(och efternamn)
         {
-            //using (var family = new FamilyTree())
-            //{
-            //    var list = family.StarkFamily.OrderByDescending(f => f.FirstName);
-            //    foreach (var n in list)
-            //    {
-            //        Console.WriteLine(n);
-            //    }
-            //}
+            using (var family = new Database())
+            {
+                var list = family.People.OrderByDescending(f => f.FirstName);
+                foreach (var n in list)
+                {
+                    Console.WriteLine("Firstname: ", n.FirstName);
+                }
+            }
 
         }
-        public void ReadFirstLetter(Person p)  //lista efter angiven bokstav
+        public void ReadFirstLetter()  //lista efter angiven bokstav
         {
-            //Console.WriteLine("Input first letter:");
-            //string firstLetter = Console.ReadLine();
+            
+            using(var family = new Database())
+            {
+                Console.WriteLine("Input first letter:");
+                string firstLetter = Console.ReadLine();
+                Console.WriteLine(firstLetter);
 
-            //db.Personer.Where(n => n.Namn.StartsWith(firstLetter));
+                var persons = family.People.Where(n => n.FirstName.StartsWith(firstLetter)).ToList();
+
+                persons.ForEach(person => Console.WriteLine("Firstname: ", person.FirstName));
+            }
         }
 
         public void ReadBirthYear(Person p) //lista efter angivet år

@@ -14,6 +14,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
         {
             using (var db = new Database())
             {
+                //db.CreateTable<Person>();
                 db.People.Add(new Models.Person  //1
                 {
                     

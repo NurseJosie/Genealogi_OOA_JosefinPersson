@@ -55,33 +55,80 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             
             // skicka in till DB
 
-            // ange personens föräldrar, spouse och pet!
+            // ange personens föräldrar, spouse och pet! kolla först om den finns och föreslå den
         }
-        public void Read(string name, string lastname)
+        public void Read()
         {
+            //using (var family = new FamilyTree())
+            //{
+            //    var list = family.StarkFamily.OrderByDescending(f => f.FirstName);
+            //    foreach (var n in list)
+            //    {
+            //        Console.WriteLine(n);
+            //    }
+            //}
+
             // för- och efternamn
         }
-        public void Read(Person p)
+        public void ReadFirstLetter(Person p)
         {
-            // ?
+            //Console.WriteLine("Input first letter:");
+            //string firstLetter = Console.ReadLine();
+
+            //db.Personer.Where(n => n.Namn.StartsWith(firstLetter));
         }
-        public void Read(int id)
+
+        public void ReadBirthYear(Person p)
         {
-            // sök på Id
+            //Console.WriteLine("Input birth year:");
+            //string birthYearInput = Console.ReadLine();
+            //var birthYear = 0;
+            //int.TryParse(birthYearInput, out birthYear);
+
+            //db.Personer.Where(n => n.Namn.StartsWith(firstLetter));
         }
+
         public void Update(Person p)
         {
-
+            //using (var filmsamling = new FilmLista())
+            //{
+            //    var film = filmsamling.Filmer.FirstOrDefault(f => f.TitelEng == "Crow");
+            //    if (film != null)
+            //    {
+            //        film.TitelEng = "The Crow";
+            //        filmsamling.Filmer.Update(film);
+            //        filmsamling.SaveChanges();
+            //    }
+            //}
         }
         public void Delete(Person p)
         {
+            //using (var filmsamling = new FilmLista())
+            //{
+            //    var film = filmsamling.Filmer.Where(f => f.TitelEng == "Elf").FirstOrDefault();
+            //    if (film != null)
+            //        filmsamling.Filmer.Remove(film);
 
+            //}
         }
-        public void Delete(int id)
-        {
 
-        }
     }
+
+    //Console.WriteLine("1) Create");               PÅBÖRJAD
+    //Console.WriteLine("2) Read(Find)");           PÅBÖRJAD
+    //Console.WriteLine("3) Update");               PÅBÖRJAD
+    //Console.WriteLine("4) Delete");               PÅBÖRJAD
+    //Console.WriteLine("5) Namnlista på viss bokstav     PÅBÖRJAD
+    //eller födelseår");                                PÅBÖRJAD
+    //Console.WriteLine("6) Visa mor- och farföräldrar");
+    //Console.WriteLine("7) Visa barn(spec. persons barn?, +husdjur)");
+    //VISA SYSKON
+    //
+
+
+
+
+
 
     //public class GenealogiCRUD                                                                    EXEMPEL FRÅN PDF
     //{

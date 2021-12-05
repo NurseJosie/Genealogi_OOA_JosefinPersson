@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace Genealogi_OOA_JosefinPersson.Models
 {
     //public class History //behövs för G?
     //{
-    //    [Key] //?
+    //    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     //    public int Id { get; set; }
     //    public DateTime EventDate { get; set; }
     //    public string Event { get; set; } 
@@ -17,7 +18,7 @@ namespace Genealogi_OOA_JosefinPersson.Models
 
     public class Spouse //för att kunna få med omgifte, behövs för G?
     {
-        [Key]//?
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public Person SpouseA { get; set; }
         public Person SpouseB { get; set; }
@@ -25,7 +26,7 @@ namespace Genealogi_OOA_JosefinPersson.Models
 
     //public class Pet
     //{
-    //    [Key]//?
+    //    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     //    public int Id { get; set; }
     //    public Person Owner { get; set; }
     //    public string Name { get; set; }
@@ -36,8 +37,8 @@ namespace Genealogi_OOA_JosefinPersson.Models
     //}
 
     public class Person
-    { 
-        [Key]//?
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

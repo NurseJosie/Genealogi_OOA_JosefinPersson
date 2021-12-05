@@ -13,7 +13,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
         {
             FamilyTree familyTree = new();
             familyTree.StarkFamily();
-            familyTree.Partners();
+            //familyTree.Partners();
 
             bool run = true;
 
@@ -55,6 +55,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 Console.WriteLine("5) Namnlista på viss bokstav eller födelseår");
                 Console.WriteLine("6) Visa mor- och farföräldrar");
                 Console.WriteLine("7) Visa barn(spec. persons barn?, +husdjur)");
+                // syskon!
                 Console.WriteLine("8) Exit");
 
 

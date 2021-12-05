@@ -23,17 +23,17 @@ namespace Genealogi_OOA_JosefinPersson.Models
     //    public Person SpouseB { get; set; }
     //}
 
-    public class Pet
-    {
-        [Key]//?
-        public int Id { get; set; }
-        public Person Owner { get; set; }
-        public string Name { get; set; }
-        public string BirthDate { get; set; } // DateTime? År räcker!
-        public string DeathDate { get; set; } // DateTime? År räcker!
-        //public Pet MotherId { get; set; } // ange Id på personen, kommer ej anges för hundarna
-        //public Pet FatherId { get; set; } // ange Id på personen, kommer ej anges för hundarna
-    }
+    //public class Pet
+    //{
+    //    [Key]//?
+    //    public int Id { get; set; }
+    //    public Person Owner { get; set; }
+    //    public string Name { get; set; }
+    //    public string BirthDate { get; set; } // DateTime? År räcker!
+    //    public string DeathDate { get; set; } // DateTime? År räcker!
+    //    //public Pet MotherId { get; set; } // ange Id på personen, kommer ej anges för hundarna
+    //    //public Pet FatherId { get; set; } // ange Id på personen, kommer ej anges för hundarna
+    //}
 
     public class Person
     { 
@@ -47,7 +47,7 @@ namespace Genealogi_OOA_JosefinPersson.Models
         public int FatherId { get; set; } // ange Id på personen
         //public List<Spouse> Spouses { get; set; } //behövs för G? Vill ändå ha med!
         //public List<History> History { get; set; } //behövs för G? Vill ändå ha med!
-        public List<Pet> Pets { get; set; } //behövs för G? Vill ändå ha med! List?
+        //public List<Pet> Pets { get; set; } //behövs för G? Vill ändå ha med! List?
     }
 
     //public class GenealogiCRUD                                                             från PDF   HÖR TILL PersonCrud.cs

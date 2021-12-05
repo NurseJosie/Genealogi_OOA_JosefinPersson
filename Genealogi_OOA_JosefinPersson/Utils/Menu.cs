@@ -11,7 +11,9 @@ namespace Genealogi_OOA_JosefinPersson.Utils
     {
         public void mainMenu()
         {
-            FamilyTree familyTree = new FamilyTree();
+            FamilyTree familyTree = new();
+            familyTree.StarkFamily();
+
             bool run = true;
 
             while (run)

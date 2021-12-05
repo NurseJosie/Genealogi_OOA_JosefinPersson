@@ -16,16 +16,16 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             {
                 db.People.Add(new Models.Person
                 {
-                    Id = 1, //lägg till manuellt?
+                    //Id = 1, //lägg till manuellt?
                     FirstName = "Rickard",
                     LastName = "Stark",
                     BirthDate = 1900,
                     DeathDate = 1950,
                     MotherId = 0,
                     FatherId = 0,
-                    Pets = new List<Pet>
-                    {
-                    }
+                    //Pets = new List<Pet>
+                    //{
+                    //}
                 });
                 db.SaveChanges();
             }

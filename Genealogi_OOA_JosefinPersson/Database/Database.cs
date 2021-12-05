@@ -14,9 +14,6 @@ namespace Genealogi_OOA_JosefinPersson
         private const string DatabaseName = "JPGenealogi";
         private const string ConnString = "server=(localdb)\\mssqllocaldb;integrated security=true;database = JPGenealogi";     // 
         public DbSet<Person> People { get; set; }
-        //public DbSet<Pet> Pets { get; set; }
-        public DbSet<Spouse> Spouses { get; set; }
-        //public DbSet<History> History { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
            // var conn=string.Format(ConnString, DatabaseName);

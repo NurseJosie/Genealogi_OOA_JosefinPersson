@@ -57,7 +57,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
 
             // ange personens föräldrar, spouse och pet! kolla först om den finns och föreslå den
         }
-        public void Read()
+        public void Read() // lista alla förnamn(och efternamn)
         {
             //using (var family = new FamilyTree())
             //{
@@ -68,9 +68,8 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             //    }
             //}
 
-            // för- och efternamn
         }
-        public void ReadFirstLetter(Person p)
+        public void ReadFirstLetter(Person p)  //lista efter angiven bokstav
         {
             //Console.WriteLine("Input first letter:");
             //string firstLetter = Console.ReadLine();
@@ -78,7 +77,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             //db.Personer.Where(n => n.Namn.StartsWith(firstLetter));
         }
 
-        public void ReadBirthYear(Person p)
+        public void ReadBirthYear(Person p) //lista efter angivet år
         {
             //Console.WriteLine("Input birth year:");
             //string birthYearInput = Console.ReadLine();
@@ -88,7 +87,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             //db.Personer.Where(n => n.Namn.StartsWith(firstLetter));
         }
 
-        public void Update(Person p)
+        public void Update(Person p) //uppdatera........
         {
             //using (var filmsamling = new FilmLista())
             //{
@@ -101,7 +100,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             //    }
             //}
         }
-        public void Delete(Person p)
+        public void Delete(Person p) // ta bort......
         {
             //using (var filmsamling = new FilmLista())
             //{
@@ -112,6 +111,21 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             //}
         }
 
+        public void ShowParents() //visa föräldrar......
+        {
+
+        }
+
+        public void ShowSiblings() //visa alla med samma förälder......
+        {
+
+        }
+
+        public void ShowChildren() //visa alla barn till en person......
+        {
+
+        }
+
     }
 
     //Console.WriteLine("1) Create");               PÅBÖRJAD
@@ -120,10 +134,10 @@ namespace Genealogi_OOA_JosefinPersson.Utils
     //Console.WriteLine("4) Delete");               PÅBÖRJAD
     //Console.WriteLine("5) Namnlista på viss bokstav     PÅBÖRJAD
     //eller födelseår");                                PÅBÖRJAD
-    //Console.WriteLine("6) Visa mor- och farföräldrar");
-    //Console.WriteLine("7) Visa barn(spec. persons barn?, +husdjur)");
-    //VISA SYSKON
-    //
+    //Console.WriteLine("6) Visa mor- och farföräldrar");    PÅBÖRJAD
+    //Console.WriteLine("7) Visa barn(spec. persons barn?, +husdjur)");    PÅBÖRJAD
+    //VISA SYSKON                                   PÅBÖRJAD
+  
 
 
 

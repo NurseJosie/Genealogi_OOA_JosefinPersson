@@ -15,13 +15,13 @@ namespace Genealogi_OOA_JosefinPersson.Models
     //    public string Event { get; set; } 
     //}
 
-    //public class Spouse //för att kunna få med omgifte, behövs för G?
-    //{
-    //    [Key]//?
-    //    public int Id { get; set; }
-    //    public Person SpouseA { get; set; }
-    //    public Person SpouseB { get; set; }
-    //}
+    public class Spouse //för att kunna få med omgifte, behövs för G?
+    {
+        [Key]//?
+        public int Id { get; set; }
+        public Person SpouseA { get; set; }
+        public Person SpouseB { get; set; }
+    }
 
     //public class Pet
     //{
@@ -45,7 +45,12 @@ namespace Genealogi_OOA_JosefinPersson.Models
         public int DeathDate { get; set; } // DateTime? År räcker!
         public int MotherId { get; set; } // ange Id på personen
         public int FatherId { get; set; } // ange Id på personen
-        //public List<Spouse> Spouses { get; set; } //behövs för G? Vill ändå ha med!
+        public List<Spouse> Spouses { get; set; } //behövs för G? Vill ändå ha med!
+
+        public static implicit operator Person(int v)
+        {
+            throw new NotImplementedException();
+        }
         //public List<History> History { get; set; } //behövs för G? Vill ändå ha med!
         //public List<Pet> Pets { get; set; } //behövs för G? Vill ändå ha med! List?
     }

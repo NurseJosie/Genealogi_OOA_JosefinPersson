@@ -11,6 +11,45 @@ namespace Genealogi_OOA_JosefinPersson.Utils
     {
         public void Create(Person p)
         {
+            using(var create = new Database())
+            {
+                Console.WriteLine("Firstname:");
+                var createName = Console.ReadLine();
+
+                Console.WriteLine("Lastname:");
+                var createLastName = Console.ReadLine();
+
+                Console.WriteLine("Birth year:");
+                string input1 = Console.ReadLine();
+                var createBirthYear = 0;
+                int.TryParse(input1, out createBirthYear);
+
+                Console.WriteLine("Year of death:");
+                string input2 = Console.ReadLine();
+                var createDeathYear = 0;
+                int.TryParse(input2, out createDeathYear);
+
+                Console.WriteLine("Mother(Id):");
+                string input3 = Console.ReadLine();
+                var createMotherId = 0;
+                int.TryParse(input3, out createMotherId);
+
+                Console.WriteLine("Father(Id):");
+                string input4 = Console.ReadLine();
+                var createFatherId = 0;
+                int.TryParse(input4, out createFatherId);
+
+                Person person = new Person()
+                {
+                    FirstName = createName,
+                    LastName = createLastName,
+                    BirthDate = createBirthYear,
+                    DeathDate = createDeathYear,
+                    MotherId = createMotherId,
+                    FatherId = createFatherId,
+                };
+            }
+            
             // skicka in till DB
 
             // ange personens föräldrar, spouse och pet!

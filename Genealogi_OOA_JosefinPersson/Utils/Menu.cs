@@ -13,6 +13,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
         {
             FamilyTree familyTree = new();
             familyTree.StarkFamily();
+            familyTree.Partners();
 
             bool run = true;
 

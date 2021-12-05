@@ -59,14 +59,14 @@ namespace Genealogi_OOA_JosefinPersson.Utils
 
 
                 string userInput = Console.ReadLine();
-                int input = 0;
-                int.TryParse(userInput, out input);
+                int menuInput = 0;
+                int.TryParse(userInput, out menuInput);
 
 
-                switch (input)
+                switch (menuInput)
                 {
                     case 1:
-                     
+                        
                         break;
                     case 2:
                         // input bokstav -> visa

@@ -48,6 +48,9 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     MotherId = createMotherId,
                     FatherId = createFatherId,
                 };
+
+                create.Add(person);
+                create.SaveChanges();
             }
             
             // skicka in till DB

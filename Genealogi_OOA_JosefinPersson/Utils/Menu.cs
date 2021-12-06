@@ -105,7 +105,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     case 10:
                         run = false;
                         break;
-                  
+
                     default:
                         Console.WriteLine("Input a number between 1-10.");
                         Console.ReadKey();

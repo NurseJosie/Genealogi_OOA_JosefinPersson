@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Genealogi_OOA_JosefinPersson.Utils
 {
-    public class PersonCrud 
+    public class PersonCrud
     {
         public void Create()
         {
-            using(var create = new Database())
+            using (var create = new Database())
             {
                 Console.WriteLine("Firstname:");
                 var createName = Console.ReadLine();
@@ -54,10 +54,8 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 Console.WriteLine("New family member added!");
                 Console.ReadKey();
             }
- 
-            // ange personens föräldrar, kolla först om den finns och föreslå den
         }
-        public void Read() // lista alla förnamn, efternamn samt Id
+        public void Read() // listar alla förnamn, efternamn samt Id
         {
             using (var family = new Database())
             {
@@ -69,9 +67,9 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             }
             Console.ReadKey();
         }
-        public void ReadFirstLetter()  //lista efter angiven bokstav
+        public void ReadFirstLetter()  //listar efter angiven bokstav
         {
-            using(var family = new Database())
+            using (var family = new Database())
             {
                 Console.WriteLine("Input first letter of firstname:");
                 string firstLetter = Console.ReadLine();
@@ -80,7 +78,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             }
             Console.ReadKey();
         }
-        public void ReadBirthYear() //lista efter angivet år
+        public void ReadBirthYear() //listar efter angivet födelseår
         {
             using (var family = new Database())
             {
@@ -93,7 +91,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             }
             Console.ReadKey();
         }
-        public void Update() //uppdatera vald person, alla properties
+        public void Update() //uppdaterar vald person, alla properties
         {
             using (var update = new Database())
             {
@@ -143,7 +141,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             }
             Console.ReadKey();
         }
-        public void Delete() // ange förnamn, ta bort
+        public void Delete() // söker via förnamn, ta bort från tabellen
         {
             using (var delete = new Database())
             {
@@ -151,17 +149,17 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 var inputName = Console.ReadLine();
 
                 var d = delete.People.Where(f => f.FirstName == inputName).FirstOrDefault();
-                if (d != null) 
+                if (d != null)
                 {
                     delete.People.Remove(d);
                     delete.SaveChanges();
                     Console.WriteLine("Family member deleted!");
                 }
                 else Console.WriteLine("Cannot find family member with that firstname!");
-            }         
-              Console.ReadKey();
+            }
+            Console.ReadKey();
         }
-        public void ShowGrandParents() // ange person, visa föräldrars ID
+        public void ShowGrandParents() // sök på förnamn, söker upp dess föräldrar och lägger i lista, söker sedan upp deras föräldrar och listar dem
         {
             using (var grandParents = new Database())
             {
@@ -176,7 +174,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
 
                     if (parentsList.Count > 0)
                     {
-                        foreach(Person p in parentsList)
+                        foreach (Person p in parentsList)
                         {
                             List<Person> grandParentsList = GetParents(p);
                             if (grandParentsList.Count > 0)
@@ -194,28 +192,24 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                     }
                     else
                     {
-                        Console.WriteLine(person.FirstName +" " + person.LastName + " has no known parents");
+                        Console.WriteLine(person.FirstName + " " + person.LastName + " has no known parents");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Person does not exist");
+                    Console.WriteLine("Person does not exist.");
                 }
             }
             Console.ReadKey();
-
-
-            //lista föräldrar, sök upp resp. föräldrar, visa namn/ ID.....
-
         }
-        public void ShowSiblings() // visa alla syskon till en person
+        public void ShowSiblings() // visar alla med samma föräldrar
         {
             using (var siblings = new Database())
             {
                 Console.WriteLine("Input firstname of the family member you wish to see more info about:");
                 var inputName = Console.ReadLine();
 
-                var person = siblings.People.Where(n => n.FirstName == inputName).FirstOrDefault();                
+                var person = siblings.People.Where(n => n.FirstName == inputName).FirstOrDefault();
 
                 if (person != null)
                 {
@@ -223,12 +217,12 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 }
                 else
                 {
-                    Console.WriteLine("Person does not exist");
+                    Console.WriteLine("Person does not exist.");
                 }
             }
             Console.ReadKey();
         }
-        public void ShowChildren() //visa alla barn till en person
+        public void ShowChildren() //visar alla som har personen som motherId eller fatherId
         {
             using (var children = new Database())
             {
@@ -240,22 +234,22 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 if (person != null)
                 {
                     children.People.Where(c => c.MotherId == person.Id || c.FatherId == person.Id).ToList().ForEach(person => Console.WriteLine(" - " + person.FirstName + " " + person.LastName + " - "));
-                } else
+                }
+                else
                 {
-                    Console.WriteLine("Person does not exist");
+                    Console.WriteLine("Person does not exist.");
                 }
             }
             Console.ReadKey();
         }
-        private List<Person> GetParents(Person p)
+        private List<Person> GetParents(Person p) // metod för showGrandParents(), stoppar in alla föräldrar till angiven person i en lista
         {
             List<Person> parentsList = new List<Person>();
 
-            using(var parents = new Database())
+            using (var parents = new Database())
             {
                 parentsList = parents.People.Where(n => n.Id == p.FatherId || n.Id == p.MotherId).ToList();
             }
-
             return parentsList;
         }
     }

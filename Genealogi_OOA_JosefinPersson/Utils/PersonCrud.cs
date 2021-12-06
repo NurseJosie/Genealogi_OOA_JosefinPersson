@@ -51,30 +51,34 @@ namespace Genealogi_OOA_JosefinPersson.Utils
 
                 create.Add(person);
                 create.SaveChanges();
+                Console.WriteLine("New family member added!");
+                Console.ReadKey();
             }
  
             // ange personens föräldrar, kolla först om den finns och föreslå den
         }
-        public void Read() // lista alla förnamn(och efternamn)
+        public void Read() // lista alla förnamn, efternamn samt Id
         {
             using (var family = new Database())
             {
-                var list = family.People.OrderByDescending(f => f.FirstName);
+                var list = family.People.OrderByDescending(f => f.Id);
                 foreach (var n in list)
                 {
-                    Console.WriteLine("Firstname: " + n.FirstName);
+                    Console.WriteLine("- " + n.FirstName + " " + n.LastName + " Id: " + n.Id);
                 }
             }
+            Console.ReadKey();
         }
         public void ReadFirstLetter()  //lista efter angiven bokstav
         {
             using(var family = new Database())
             {
-                Console.WriteLine("Input first letter:");
+                Console.WriteLine("Input first letter of firstname:");
                 string firstLetter = Console.ReadLine();
 
                 family.People.Where(n => n.FirstName.StartsWith(firstLetter)).ToList().ForEach(person => Console.WriteLine("Firstname: " + person.FirstName + " Lastname: " + person.LastName));
             }
+            Console.ReadKey();
         }
 
         public void ReadBirthYear() //lista efter angivet år
@@ -88,6 +92,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
 
                 family.People.Where(n => n.BirthDate == birthYear).ToList().ForEach(person => Console.WriteLine("Firstname: " + person.FirstName + " Lastname: " + person.LastName));
             }
+            Console.ReadKey();
         }
 
         public void Update() //uppdatera vald person, vald property......
@@ -102,6 +107,8 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             //        filmsamling.SaveChanges();
             //    }
             //}
+
+            Console.ReadKey();
         }
         public void Delete() // välj person, ta bort......
         {
@@ -112,21 +119,28 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             //        filmsamling.Filmer.Remove(film);
 
             //}
+            Console.ReadKey();
         }
 
         public void ShowParents() // ange person, visa föräldrars ID......
         {
 
+
+            Console.ReadKey();
         }
 
         public void ShowSiblings() // ange person......  SAMMA SOM SHOWCHILDREN?
         {
 
+
+            Console.ReadKey();
         }
 
         public void ShowChildren() //visa alla barn till en person......
         {
 
+
+            Console.ReadKey();
         }
 
     }

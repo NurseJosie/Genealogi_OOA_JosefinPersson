@@ -16,38 +16,38 @@ namespace Genealogi_OOA_JosefinPersson.Utils
 
             bool run = true;
 
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("                                   ; ; ;");
+            Console.WriteLine("                  ;        ;  ;     ;;    ;");
+            Console.WriteLine("               ;                 ;         ;  ;");
+            Console.WriteLine("                               ;");
+            Console.WriteLine("                              ;                ;;");
+            Console.WriteLine("              ;          ;            ;              ;");
+            Console.WriteLine("              ;            ';,        ;               ;");
+            Console.WriteLine("              ;              'o      *");
+            Console.WriteLine("               ;              '$    ;;                ;;");
+            Console.WriteLine("             ;    ;           $:   ;:               ;");
+            Console.WriteLine("            ; ;      ;  ;;      *;  @):        ;   ; ;");
+            Console.WriteLine("                         ;     :@,@):   ,;**:'   ;");
+            Console.WriteLine("             ;      ;,         :@@*: ;;**'      ;   ;");
+            Console.WriteLine("                      ';o;    ;:(@';@*'  ");
+            Console.WriteLine("              ;  ;       'JP,;;:,@@*'   ,*      ;  ;");
+            Console.WriteLine("                         , @@@@,:@)'   ;*'      ;");
+            Console.WriteLine("                  ;     '  ; '@@@@*'   ;  ;");
+            Console.WriteLine("                   ;  ; ;;    @@'.'    ;  ;");
+            Console.WriteLine("                             :@@:.");
+            Console.WriteLine("                            .:@:'.");
+            Console.WriteLine("                          .::@@:.");
+            Console.WriteLine();
+            Console.WriteLine("                    THE STARK FAMILY TREE");
+            Console.WriteLine("                      ~WINTER IS COMING~");
+            Thread.Sleep(5000);
+            Console.Clear();
+
             while (run)
             {
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("                                   ; ; ;");
-                Console.WriteLine("                  ;        ;  ;     ;;    ;");
-                Console.WriteLine("               ;                 ;         ;  ;");
-                Console.WriteLine("                               ;");
-                Console.WriteLine("                              ;                ;;");
-                Console.WriteLine("              ;          ;            ;              ;");
-                Console.WriteLine("              ;            ';,        ;               ;");
-                Console.WriteLine("              ;              'o      *");
-                Console.WriteLine("               ;              '$    ;;                ;;");
-                Console.WriteLine("             ;    ;           $:   ;:               ;");
-                Console.WriteLine("            ; ;      ;  ;;      *;  @):        ;   ; ;");
-                Console.WriteLine("                         ;     :@,@):   ,;**:'   ;");
-                Console.WriteLine("             ;      ;,         :@@*: ;;**'      ;   ;");
-                Console.WriteLine("                      ';o;    ;:(@';@*'  ");
-                Console.WriteLine("              ;  ;       'JP,;;:,@@*'   ,*      ;  ;");
-                Console.WriteLine("                         , @@@@,:@)'   ;*'      ;");
-                Console.WriteLine("                  ;     '  ; '@@@@*'   ;  ;");
-                Console.WriteLine("                   ;  ; ;;    @@'.'    ;  ;");
-                Console.WriteLine("                             :@@:.");
-                Console.WriteLine("                            .:@:'.");
-                Console.WriteLine("                          .::@@:.");
-                Console.WriteLine();
-                Console.WriteLine("                    THE STARK FAMILY TREE");
-                Console.WriteLine("                      ~WINTER IS COMING~");
-                Thread.Sleep(5000);
-                Console.Clear();
-
-                Console.WriteLine("Menu");
+                Console.WriteLine("---Menu---");
                 Console.WriteLine("1) Create: new Stark family member");
                 Console.WriteLine("2) Read: list of all family members");
                 Console.WriteLine("3) Read: list by first letter");
@@ -69,30 +69,39 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 {
                     case 1:
                         personCrud.Create();
+                        Console.Clear();
                         break;
                     case 2:
                         personCrud.Read();
+                        Console.Clear();
                         break;
                     case 3:
                         personCrud.ReadFirstLetter();
+                        Console.Clear();
                         break;
                     case 4:
                         personCrud.ReadBirthYear();
+                        Console.Clear();
                         break;
                     case 5:
-                       // update
+                        // update
+                        Console.Clear();
                         break;
                     case 6:
-                      // delete
+                        // delete
+                        Console.Clear();
                         break;
                     case 7:
-                       // parents
+                        // parents
+                        Console.Clear();
                         break;
                     case 8:
                         // children
+                        Console.Clear();
                         break;
                     case 9:
                         //siblings
+                        Console.Clear();
                         break;
                     case 10:
                         run = false;

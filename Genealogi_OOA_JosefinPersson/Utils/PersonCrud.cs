@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Genealogi_OOA_JosefinPersson.Utils
 {
-    public class PersonCrud // använd LINQ och SQL!
+    public class PersonCrud 
     {
         public void Create()
         {
@@ -95,31 +95,73 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             Console.ReadKey();
         }
 
-        public void Update() //uppdatera vald person, vald property......
+        public void Update() //uppdatera vald person, alla properties
         {
-            //using (var filmsamling = new FilmLista())
-            //{
-            //    var film = filmsamling.Filmer.FirstOrDefault(f => f.TitelEng == "Crow");
-            //    if (film != null)
-            //    {
-            //        film.TitelEng = "The Crow";
-            //        filmsamling.Filmer.Update(film);
-            //        filmsamling.SaveChanges();
-            //    }
-            //}
+            using (var update = new Database())
+            {
+                Console.WriteLine("Input firstname of the family member you wish to update:");
+                var inputName = Console.ReadLine();
 
+                var u = update.People.Where(f => f.FirstName == inputName).FirstOrDefault();
+                if (u != null)
+                {
+                    Console.WriteLine("Firstname:");
+                    var newName = Console.ReadLine();
+                    u.FirstName = newName;
+
+                    Console.WriteLine("Lastname:");
+                    var newLastName = Console.ReadLine();
+                    u.LastName = newLastName;
+
+                    Console.WriteLine("Birth year:");
+                    string birthInput = Console.ReadLine();
+                    var newBirth = 0;
+                    int.TryParse(birthInput, out newBirth);
+                    u.BirthDate = newBirth;
+
+                    Console.WriteLine("Year of death:");
+                    string deathInput = Console.ReadLine();
+                    var newDeath = 0;
+                    int.TryParse(deathInput, out newDeath);
+                    u.DeathDate = newDeath;
+
+                    Console.WriteLine("Id of mother:");
+                    string momInput = Console.ReadLine();
+                    var newMom = 0;
+                    int.TryParse(momInput, out newMom);
+                    u.MotherId = newMom;
+
+                    Console.WriteLine("Id of father:");
+                    string dadInput = Console.ReadLine();
+                    var newDad = 0;
+                    int.TryParse(dadInput, out newDad);
+                    u.FatherId = newDad;
+
+                    update.People.Update(u);
+                    update.SaveChanges();
+                    Console.WriteLine("Family member updated!");
+                }
+                else Console.WriteLine("Cannot find family member with that firstname!");
+            }
             Console.ReadKey();
         }
-        public void Delete() // välj person, ta bort......
+        public void Delete() // ange förnamn, ta bort
         {
-            //using (var filmsamling = new FilmLista())
-            //{
-            //    var film = filmsamling.Filmer.Where(f => f.TitelEng == "Elf").FirstOrDefault();
-            //    if (film != null)
-            //        filmsamling.Filmer.Remove(film);
+            using (var delete = new Database())
+            {
+                Console.WriteLine("Input firstname of the family member you wish to delete:");
+                var inputName = Console.ReadLine();
 
-            //}
-            Console.ReadKey();
+                var d = delete.People.Where(f => f.FirstName == inputName).FirstOrDefault();
+                if (d != null) 
+                {
+                    delete.People.Remove(d);
+                    delete.SaveChanges();
+                    Console.WriteLine("Family member deleted!");
+                }
+                else Console.WriteLine("Cannot find family member with that firstname!");
+            }         
+              Console.ReadKey();
         }
 
         public void ShowParents() // ange person, visa föräldrars ID......
@@ -144,24 +186,4 @@ namespace Genealogi_OOA_JosefinPersson.Utils
         }
 
     }
-
-  
-
-
-
-    //public class GenealogiCRUD                                                                    EXEMPEL FRÅN PDF
-    //{
-    //    public string DatabaseName { get; set; } = "Genealogi";
-    //    public int MaxRows { get; set; } = 10; // Max rows to return when searching
-    //    public string OrderBy { get; set; } = "lastName";
-    //    public void Create(Person person) {/* Massor med kod */}
-    //    public void Delete(Person person) {/* Massor med kod */}
-    //    public bool DoesPersonExist(string name) {/* Massor med kod */}
-    //    public bool DoesPersonExist(int Id) {/* Massor med kod */}
-    //    public void GetFather(Person person) {/* Massor med kod */}
-    //    public void GetMother(Person person) {/* Massor med kod */}
-    //    public List<Person> List(string filter = "firstName", string paramValue) {/* Massor med kod */}
-    //    public Person Read(string name) {/* Massor med kod */}
-    //    public void Update(Person person) {/* Massor med kod */}
-    //}
 }

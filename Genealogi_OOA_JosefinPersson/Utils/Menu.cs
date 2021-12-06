@@ -84,11 +84,11 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                         Console.Clear();
                         break;
                     case 5:
-                        // update
+                        personCrud.Update();
                         Console.Clear();
                         break;
                     case 6:
-                        // delete
+                        personCrud.Delete();
                         Console.Clear();
                         break;
                     case 7:

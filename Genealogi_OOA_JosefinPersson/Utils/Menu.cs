@@ -47,7 +47,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 Thread.Sleep(5000);
                 Console.Clear();
 
-                Console.WriteLine("Meny");
+                Console.WriteLine("Menu");
                 Console.WriteLine("1) Create: new Stark family member");
                 Console.WriteLine("2) Read: list of all family members");
                 Console.WriteLine("3) Read: list by first letter");

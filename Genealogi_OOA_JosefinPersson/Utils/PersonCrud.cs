@@ -168,7 +168,39 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 Console.WriteLine("Input firstname of the family member you wish to see more info about:");
                 var inputName = Console.ReadLine();
 
-                grandParents.People.Where(n => n.FirstName == inputName).ToList().ForEach(person => Console.WriteLine(" - " + person.FirstName + " " + person.LastName + " - " + " Id of mother: " + person.MotherId + " Id of father: " + person.FatherId));
+                Person person = grandParents.People.Where(p => p.FirstName == inputName).FirstOrDefault();
+
+                if (person != null)
+                {
+                    List<Person> parentsList = GetParents(person);
+
+                    if (parentsList.Count > 0)
+                    {
+                        foreach(Person p in parentsList)
+                        {
+                            List<Person> grandParentsList = GetParents(p);
+                            if (grandParentsList.Count > 0)
+                            {
+                                foreach (Person gp in grandParentsList)
+                                {
+                                    Console.WriteLine(" - " + gp.FirstName + " " + gp.LastName + " - ");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Parent: " + p.FirstName + " " + p.LastName + " has no known parents");
+                            }
+                        };
+                    }
+                    else
+                    {
+                        Console.WriteLine(person.FirstName +" " + person.LastName + " has no known parents");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Person does not exist");
+                }
             }
             Console.ReadKey();
 
@@ -183,8 +215,16 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 Console.WriteLine("Input firstname of the family member you wish to see more info about:");
                 var inputName = Console.ReadLine();
 
-                var person = siblings.People.Where(n => n.FirstName == inputName).FirstOrDefault();
-                siblings.People.Where(s => s.MotherId == person.MotherId || s.FatherId == person.FatherId).ToList().ForEach(person => Console.WriteLine(" - " + person.FirstName + " " + person.LastName + " - "));
+                var person = siblings.People.Where(n => n.FirstName == inputName).FirstOrDefault();                
+
+                if (person != null)
+                {
+                    siblings.People.Where(s => s.MotherId == person.MotherId || s.FatherId == person.FatherId).ToList().ForEach(person => Console.WriteLine(" - " + person.FirstName + " " + person.LastName + " - "));
+                }
+                else
+                {
+                    Console.WriteLine("Person does not exist");
+                }
             }
             Console.ReadKey();
         }
@@ -196,9 +236,27 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 var inputName = Console.ReadLine();
 
                 var person = children.People.Where(n => n.FirstName == inputName).FirstOrDefault();
-                children.People.Where(c => c.MotherId == person.Id || c.FatherId == person.Id).ToList().ForEach(person => Console.WriteLine(" - " + person.FirstName + " " + person.LastName + " - "));
+
+                if (person != null)
+                {
+                    children.People.Where(c => c.MotherId == person.Id || c.FatherId == person.Id).ToList().ForEach(person => Console.WriteLine(" - " + person.FirstName + " " + person.LastName + " - "));
+                } else
+                {
+                    Console.WriteLine("Person does not exist");
+                }
             }
             Console.ReadKey();
+        }
+        private List<Person> GetParents(Person p)
+        {
+            List<Person> parentsList = new List<Person>();
+
+            using(var parents = new Database())
+            {
+                parentsList = parents.People.Where(n => n.Id == p.FatherId || n.Id == p.MotherId).ToList();
+            }
+
+            return parentsList;
         }
     }
 }

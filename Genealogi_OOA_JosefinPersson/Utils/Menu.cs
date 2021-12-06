@@ -17,53 +17,52 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             bool run = true;
 
             Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("                                   ; ; ;");
-            Console.WriteLine("                  ;        ;  ;     ;;    ;");
-            Console.WriteLine("               ;                 ;         ;  ;");
+            Console.WriteLine("                           ;     ;;");
+            Console.WriteLine("                      ; ;            ; ; ;");
+            Console.WriteLine("                  ;;        ;  ;     ;; ;;");
+            Console.WriteLine("             ;  ;                 ;         ;  ;");
             Console.WriteLine("                               ;");
-            Console.WriteLine("                              ;                ;;");
-            Console.WriteLine("              ;          ;            ;              ;");
+            Console.WriteLine("                         ..    ;                ;*;");
+            Console.WriteLine("           :   ;          ;            ;              ;");
             Console.WriteLine("              ;            ';,        ;               ;");
             Console.WriteLine("              ;              'o      *");
             Console.WriteLine("               ;              '$    ;;                ;;");
             Console.WriteLine("             ;    ;           $:   ;:               ;");
-            Console.WriteLine("            ; ;      ;  ;;      *;  @):        ;   ; ;");
-            Console.WriteLine("                         ;     :@,@):   ,;**:'   ;");
+            Console.WriteLine("           ; ; ;      ;  ;;      *;  @):      .  ;   ; ;");
+            Console.WriteLine("                    .     ;     :@,@):   ,;**:'   ;");
             Console.WriteLine("             ;      ;,         :@@*: ;;**'      ;   ;");
             Console.WriteLine("                      ';o;    ;:(@';@*'  ");
-            Console.WriteLine("              ;  ;       'JP,;;:,@@*'   ,*      ;  ;");
+            Console.WriteLine("              ;  ;       ';;,;;:,@@*'   ,*      ;  ;");
             Console.WriteLine("                         , @@@@,:@)'   ;*'      ;");
             Console.WriteLine("                  ;     '  ; '@@@@*'   ;  ;");
             Console.WriteLine("                   ;  ; ;;    @@'.'    ;  ;");
             Console.WriteLine("                             :@@:.");
-            Console.WriteLine("                            .:@:'.");
-            Console.WriteLine("                          .::@@:.");
+            Console.WriteLine("                           ..:@:'.");
+            Console.WriteLine("                         ..::@@:.");
             Console.WriteLine();
             Console.WriteLine("                    THE STARK FAMILY TREE");
             Console.WriteLine("                      ~WINTER IS COMING~");
-            Thread.Sleep(5000);
+            Thread.Sleep(4000);
             Console.Clear();
 
             while (run)
             {
-                Console.WriteLine("---Menu---");
+                Console.WriteLine("------Menu------");
                 Console.WriteLine("1) Create: new Stark family member");
                 Console.WriteLine("2) Read: list of all family members");
                 Console.WriteLine("3) Read: list by first letter");
                 Console.WriteLine("4) Read: list by birth year");
                 Console.WriteLine("5) Update: family member");
                 Console.WriteLine("6) Delete: family member");
-                Console.WriteLine("7) Search for parents");
-                Console.WriteLine("8) Search for children");
-                Console.WriteLine("9) Search for siblings");
+                Console.WriteLine("7) Show grandparents");
+                Console.WriteLine("8) Show children");
+                Console.WriteLine("9) Show siblings");
                 Console.WriteLine("10) Exit");
 
                 string userInput = Console.ReadLine();
                 int menuInput = 0;
                 int.TryParse(userInput, out menuInput);
                 PersonCrud personCrud = new PersonCrud();
-
 
                 switch (menuInput)
                 {
@@ -92,15 +91,15 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                         Console.Clear();
                         break;
                     case 7:
-                        // parents
+                        personCrud.ShowGrandParents();
                         Console.Clear();
                         break;
                     case 8:
-                        // children
+                        personCrud.ShowChildren();
                         Console.Clear();
                         break;
                     case 9:
-                        //siblings
+                        personCrud.ShowSiblings();
                         Console.Clear();
                         break;
                     case 10:

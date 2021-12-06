@@ -64,7 +64,7 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 var list = family.People.OrderByDescending(f => f.Id);
                 foreach (var n in list)
                 {
-                    Console.WriteLine("- " + n.FirstName + " " + n.LastName + " Id: " + n.Id);
+                    Console.WriteLine(" - " + n.FirstName + " " + n.LastName + " Id: " + n.Id);
                 }
             }
             Console.ReadKey();
@@ -80,7 +80,6 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             }
             Console.ReadKey();
         }
-
         public void ReadBirthYear() //lista efter angivet år
         {
             using (var family = new Database())
@@ -90,11 +89,10 @@ namespace Genealogi_OOA_JosefinPersson.Utils
                 var birthYear = 0;
                 int.TryParse(birthYearInput, out birthYear);
 
-                family.People.Where(n => n.BirthDate == birthYear).ToList().ForEach(person => Console.WriteLine("Firstname: " + person.FirstName + " Lastname: " + person.LastName));
+                family.People.Where(n => n.BirthDate == birthYear).ToList().ForEach(person => Console.WriteLine("  -  " + person.FirstName + " " + person.LastName + "  -  "));
             }
             Console.ReadKey();
         }
-
         public void Update() //uppdatera vald person, alla properties
         {
             using (var update = new Database())
@@ -163,27 +161,44 @@ namespace Genealogi_OOA_JosefinPersson.Utils
             }         
               Console.ReadKey();
         }
-
-        public void ShowParents() // ange person, visa föräldrars ID......
+        public void ShowGrandParents() // ange person, visa föräldrars ID
         {
+            using (var grandParents = new Database())
+            {
+                Console.WriteLine("Input firstname of the family member you wish to see more info about:");
+                var inputName = Console.ReadLine();
+
+                grandParents.People.Where(n => n.FirstName == inputName).ToList().ForEach(person => Console.WriteLine(" - " + person.FirstName + " " + person.LastName + " - " + " Id of mother: " + person.MotherId + " Id of father: " + person.FatherId));
+            }
+            Console.ReadKey();
 
 
+            //lista föräldrar, sök upp resp. föräldrar, visa namn/ ID.....
+
+        }
+        public void ShowSiblings() // visa alla syskon till en person
+        {
+            using (var siblings = new Database())
+            {
+                Console.WriteLine("Input firstname of the family member you wish to see more info about:");
+                var inputName = Console.ReadLine();
+
+                var person = siblings.People.Where(n => n.FirstName == inputName).FirstOrDefault();
+                siblings.People.Where(s => s.MotherId == person.MotherId || s.FatherId == person.FatherId).ToList().ForEach(person => Console.WriteLine(" - " + person.FirstName + " " + person.LastName + " - "));
+            }
             Console.ReadKey();
         }
-
-        public void ShowSiblings() // ange person......  SAMMA SOM SHOWCHILDREN?
+        public void ShowChildren() //visa alla barn till en person
         {
+            using (var children = new Database())
+            {
+                Console.WriteLine("Input firstname of the family member you wish to see more info about:");
+                var inputName = Console.ReadLine();
 
-
+                var person = children.People.Where(n => n.FirstName == inputName).FirstOrDefault();
+                children.People.Where(c => c.MotherId == person.Id || c.FatherId == person.Id).ToList().ForEach(person => Console.WriteLine(" - " + person.FirstName + " " + person.LastName + " - "));
+            }
             Console.ReadKey();
         }
-
-        public void ShowChildren() //visa alla barn till en person......
-        {
-
-
-            Console.ReadKey();
-        }
-
     }
 }
